@@ -1,4 +1,5 @@
 <?php
+    //not used at the moment but might be needed
     //DATABASE CONNECTION
     $host = "localhost";
     $username = "root";
