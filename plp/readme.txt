@@ -1,4 +1,4 @@
-Test procedure:
+Test procedure for windows os:
 Install XAMPP to root drive in folder 'xampp'
     navigate to C:\xampp\htdocs\
     you can store web projects here. put 'plp' folder containing web files here
