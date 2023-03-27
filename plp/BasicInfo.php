@@ -2,16 +2,28 @@
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
+    $fname = $_POST['fname'];
+    $prefname = $_POST['prefname'];
+    $lname = $_POST['lname'];
+    $student_id = $_POST['student_id'];
     $email = $_POST['email'];
-    $age = $_POST['age'];
+    $date_of_birth = date('Y-m-d', strtotime($_POST['date_of_birth']));
+    $class = $_POST['class'];
+    $gpa = $_POST['gpa'];
+    if (is_numeric($gpa)) {
+        $gpa = floatval($gpa);
+    } else {
+        echo 'GPA is not numeric';
+    }
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
+    $city = $_POST['city'];
+    $state = $_POST['state'];
+    $zipcode = $_POST['zipcode'];
+    
 
-    // Sanitize and validate user input
-    $name = mysqli_real_escape_string($conn, $name);
-    $email = mysqli_real_escape_string($conn, $email);
-    $age = intval($age); // Convert to integer
 
-    //DATABASE CONNECTION
+    //DATABASE CONNECTION CONFIG
     $host = "localhost";
     $username = "root";
     $password = "";
@@ -24,8 +36,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     //echo "Connected successfully to database";
 
-    // Construct an SQL query
-    $sql = "INSERT INTO mentees (name, email, age) VALUES ('$name', '$email', $age)";
+    // Sanitize and validate user input
+    $fname = mysqli_real_escape_string($conn, $fname);
+    $prefname = mysqli_real_escape_string($conn, $prefname);
+    $lname = mysqli_real_escape_string($conn, $lname);
+    $student_id = mysqli_real_escape_string($conn, $student_id);
+    $email = mysqli_real_escape_string($conn, $email);
+    $date_of_birth = mysqli_real_escape_string($conn, $date_of_birth);
+    $phone = mysqli_real_escape_string($conn, $phone);
+    $address = mysqli_real_escape_string($conn, $address);
+    $city = mysqli_real_escape_string($conn, $city);
+    $state = mysqli_real_escape_string($conn, $state);
+    $zipcode = mysqli_real_escape_string($conn, $zipcode);
+
+    // Construct an SQL query - very long I should try to multi line when more confident
+    $sql = "INSERT INTO mentees (fname, prefname, lname, student_id, email, date_of_birth, class, gpa, phone, address, city, state, zipcode) 
+    VALUES ('$fname', '$prefname', '$lname', '$student_id', '$email', '$date_of_birth', '$class', '$gpa', '$phone', '$address', '$city', '$state', '$zipcode')";
     // Execute the query
     if (mysqli_query($conn, $sql)) {
         echo "User record saved successfully";
@@ -46,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<meta name="description" content="Professional Leadership program">
 		<meta name="keywords" content="Professional Leadership Program UNT">
 		
-		  <link rel="stylesheet" type="text/css" href="./css/main.css">
+	  <link rel="stylesheet" type="text/css" href="./css/main.css">
       <link href="./css/css" rel="stylesheet" type="text/css">
 		<style>
 
@@ -59,27 +85,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<div class="header">
 
 			<ul class="tabs">
-				<li><a class="button" href="https://untplp.com/index.html">Welcome</a></li>
-			  <li><a class="button" href="https://untplp.com/requirements.html">Requirements  </a> </li>
+				<li><a class="button" href="index.php">Welcome</a></li>
+			  <li><a class="button" href="Requirements.php">Requirements  </a> </li>
 			  <li><b>Basic Info </b></li>
-			  <li><a class="button" href="https://untplp.com/PEE.html"> Professional Experience and Education </a></li>
-			  <li><a class="button" href="https://untplp.com/mentoring.html"> Mentoring Details </a></li>
+			  <li><a class="button" href="ExperienceEducation.php"> Professional Experience and Education </a></li>
+			  <li><a class="button" href="Mentoring.php"> Mentoring Details </a></li>
 			</ul>
 		</div>
 	
 <h1> Basic Info </h1>
 <div class="ferpa">
 <form method="POST">
-  <label for="fname">First Name:</label><br>
+  <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname" required><br><br>
     
-  <label for="prefname">Preferred First Name:</label><br>
+  <label for="prefname">Preferred first name:</label><br>
   <input type="text" id="prefname" name="prefname" required><br><br>
   
   <label for="lname">Last name:</label><br>
   <input type="text" id="lname" name="lname" required><br><br>
   
-  <label for="student_id">Student ID Number:</label><br>
+  <label for="student_id">Student ID number:</label><br>
   <input type="text" id="student_id" name="student_id" required><br><br>
   
   <label for="email">UNT Email:</label><br>
@@ -92,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <input type="text" id="class" name="class"  required><br><br>
 
   <label for="gpa">GPA:</label><br>
-  <input type="number" id="gpa" name="gpa" inputmode="numeric" required><br><br>
+  <input type="text" id="gpa" name="gpa" step="any" required><br><br>
 
   <!--
   <label for="gender">Gender:</label><br>
@@ -127,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <input type="text" id="state" name="state"  required><br><br>
   
   <label for="zipcode">Zip Code:</label><br>
-  <input type="number" id="zipcode" name="zipcode"  required><br><br>
+  <input type="text" id="zipcode" name="zipcode"  required><br><br>
 
   <!--
   <label for="languages">What languages do you speak?</label><br>
