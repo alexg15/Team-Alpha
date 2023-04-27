@@ -1,0 +1,59 @@
+
+
+// Set parameters and execute statement
+$fname = $_POST['fname'];
+$pname = $_POST['pname'];
+$lname = $_POST['lname'];
+$ethnicity = $_POST['ethnicity'];
+$untalumni = $_POST['untalumni'];
+$plpalumni = $_POST['plpalumni'];
+$served = $_POST['served'];
+$yearsserved = $_POST['yearsserved'];
+$phnumber = $_POST['phnumber'];
+$streetadd = $_POST['streetadd'];
+$city = $_POST['city'];
+$state = $_POST['state'];
+$zip = $_POST['zip'];
+$differadd = $_POST['differadd'];
+$diffmail = $_POST['diffmail'];
+$diffcity = $_POST['diffcity'];
+$diffstate = $_POST['diffstate'];
+$diffzip = $_POST['diffzip'];
+$citizen = $_POST['citizen'];
+$lang = $_POST['lang'];
+
+$mentor_goals = $_POST["mentor_goals"];
+$mentee_gender_pref = $_POST["mentee_gender_pref"];
+$gender_preferred = $_POST["gender_preferred"];
+$pref_stud_majors = $_POST["pref_stud_majors"];
+$transport_preference = $_POST["transport_preference"];
+$topics_preference = $_POST["topics_preference"];
+
+  // Mentor Requirements
+$years_of_exp = $_POST["years_of_exp"];
+$mentor_referral = $_POST["mentor_referral"];
+$referral_email = $_POST["referral_email"];
+$referral_affiliation = $_POST["referral_affiliation"];
+$ackn_match = isset($_POST["ackn_match"]) ? "Yes" : "No";
+$ackn_meet = isset($_POST["ackn_meet"]) ? "Yes" : "No";
+$ackn_share = isset($_POST["ackn_share"]) ? "Yes" : "No";
+
+  // Education and Experience
+$professional_summary = $_POST["professional_summary"];
+$industry_experience = $_POST["industry_experience"];
+
+  // Current Job Info
+$company_name = $_POST["company_name"];
+$job_title = $_POST["job_title"];
+$job_description = $_POST["job_description"];
+$career_field = $_POST["career_field"];
+$start_of_employment = $_POST["start_of_employment"];
+
+  // Previous Work Experience
+$former_company_name = $_POST["former_company_name"];
+$former_job_title = $_POST["former_job_title"];
+$former_job_description = $_POST["former_job_description"];
+$former_career_field = $_POST["former_career_field"];
+$former_start_of_employment = $_POST["former_start_of_employment"];
+$former_end_of_employment = $_POST["former_end_of_employment"];
+$stmt->execute();
