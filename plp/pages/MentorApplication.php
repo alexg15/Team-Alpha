@@ -11,11 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn = mysqli_connect($host, $username, $password, $database);
 
     if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+      echo "Error: " . mysqli_error($conn);
     }
-    //echo "Connected successfully to database";
-
-    // Sanitize and validate user input
+    //echo "Connected successfully to database";    
+  // Sanitize and validate user input
     $fname = mysqli_real_escape_string($conn, $_POST['fname']);
     $prefname = mysqli_real_escape_string($conn, $_POST['prefname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lname']);
@@ -38,42 +37,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $citizen = mysqli_real_escape_string($conn, $_POST['citizen']);
     $lang = mysqli_real_escape_string($conn, $_POST['lang']);
 
-    $mentor_goals = mysqli_real_escape_string($conn, $_POST["mentor_goals"]);
-    $mentee_gender_pref = mysqli_real_escape_string($conn, $_POST["mentee_gender_pref"]);
-    $gender_preferred = mysqli_real_escape_string($conn, $_POST["gender_preferred"]);
-    $pref_stud_majors = mysqli_real_escape_string($conn, $_POST["pref_stud_majors"]);
-    $transport_preference = mysqli_real_escape_string($conn, $_POST["transport_preference"]);
-    $topics_preference = mysqli_real_escape_string($conn, $_POST["topics_preference"]);
-    $years_of_exp = mysqli_real_escape_string($conn, $_POST["years_of_exp"]);
-    $mentor_referral = mysqli_real_escape_string($conn, $_POST["mentor_referral"]);
-    $referral_email = mysqli_real_escape_string($conn, $_POST["referral_email"]);
-    $referral_affiliation = mysqli_real_escape_string($conn, $_POST["referral_affiliation"]);
-    $ackn_match = isset($_POST["ackn_match"]) ? "Yes" : "No";
-    $ackn_meet = isset($_POST["ackn_meet"]) ? "Yes" : "No";
-    $ackn_share = isset($_POST["ackn_share"]) ? "Yes" : "No";
+    $mentor_goals = mysqli_real_escape_string($conn, $_POST['mentor_goals']);
+    $mentee_gender_pref = mysqli_real_escape_string($conn, $_POST['mentee_gender_pref']);
+    $gender_preferred = mysqli_real_escape_string($conn, $_POST['gender_preferred']);
+    $pref_stud_majors = mysqli_real_escape_string($conn, $_POST['pref_stud_majors']);
+    $transport_preference = mysqli_real_escape_string($conn, $_POST['transport_preference']);
+    $topics_preference = mysqli_real_escape_string($conn, $_POST['topics_preference']);
+    $years_of_exp = mysqli_real_escape_string($conn, $_POST['years_of_exp']);
+    $mentor_referral = mysqli_real_escape_string($conn, $_POST['mentor_referral']);
+    $referral_email = mysqli_real_escape_string($conn, $_POST['referral_email']);
+    $referral_affiliation = mysqli_real_escape_string($conn, $_POST['referral_affiliation']);
+    $ackn_match = isset($_POST['ackn_match']) ? "Yes" : "No";
+    $ackn_meet = isset($_POST['ackn_meet']) ? 'Yes' : 'No';
+    $ackn_share = isset($_POST['ackn_share']) ? 'Yes' : 'No';
 
     // Education and Experience
-    $professional_summary = mysqli_real_escape_string($conn, $_POST["professional_summary"]);
-    $industry_experience = mysqli_real_escape_string($conn, $_POST["industry_experience"]);
+    $professional_summary = mysqli_real_escape_string($conn, $_POST['professional_summary']);
+    $industry_experience = mysqli_real_escape_string($conn, $_POST['industry_experience']);
 
     // Current Job Info
-    $company_name = mysqli_real_escape_string($conn, $_POST["company_name"]);
-    $job_title = mysqli_real_escape_string($conn, $_POST["job_title"]);
-    $job_description = mysqli_real_escape_string($conn, $_POST["job_description"]);
-    $career_field = mysqli_real_escape_string($conn, $_POST["career_field"]);
-    $start_of_employment = mysqli_real_escape_string($conn, $_POST["start_of_employment"]);
+    $company_name = mysqli_real_escape_string($conn, $_POST['company_name']);
+    $job_title = mysqli_real_escape_string($conn, $_POST['job_title']);
+    $job_description = mysqli_real_escape_string($conn, $_POST['job_description']);
+    $career_field = mysqli_real_escape_string($conn, $_POST['career_field']);
+    $start_of_employment = mysqli_real_escape_string($conn, $_POST['start_of_employment']);
 
     // Previous Work Experience
-    $former_company_name = mysqli_real_escape_string($conn, $_POST["former_company_name"]);
-    $former_job_title = mysqli_real_escape_string($conn, $_POST["former_job_title"]);
-    $former_job_description = mysqli_real_escape_string($conn, $_POST["former_job_description"]);
-    $former_career_field = mysqli_real_escape_string($conn, $_POST["former_career_field"]);
-    $former_start_of_employment = mysqli_real_escape_string($conn, $_POST["former_start_of_employment"]);
-    $former_end_of_employment = mysqli_real_escape_string($conn, $_POST["former_end_of_employment"]);
+    $former_company_name = mysqli_real_escape_string($conn, $_POST['former_company_name']);
+    $former_job_title = mysqli_real_escape_string($conn, $_POST['former_job_title']);
+    $former_job_description = mysqli_real_escape_string($conn, $_POST['former_job_description']);
+    $former_career_field = mysqli_real_escape_string($conn, $_POST['former_career_field']);
+    $former_start_of_employment = mysqli_real_escape_string($conn, $_POST['former_start_of_employment']);
+    $former_end_of_employment = mysqli_real_escape_string($conn, $_POST['former_end_of_employment']);
 
 
     // Construct an SQL query - very long i KNOW
-    $sql = "INSERT INTO mentees (first_name, preferred_name, last_name, gender,
+    $sql = "INSERT INTO mentors (first_name, preferred_name, last_name, gender,
                                 ethnicity, unt_alumni_check, plp_alumni_check, 
                                 mentor_exp_check, mentor_exp_yrs, phone_number, 
                                 street_address, city, state, zip_code, mailing_check,
@@ -97,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                  '$career_field', '$start_of_employment', '$former_company_name', 
                                  '$former_job_title', '$former_job_description', '$former_career_field', 
                                  '$former_start_of_employment', '$former_end_of_employment')";
+    echo $sql;
     // Execute the query
     if (mysqli_query($conn, $sql)) {
         echo "User record saved successfully";

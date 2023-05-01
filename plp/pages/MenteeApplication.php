@@ -11,72 +11,74 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn = mysqli_connect($host, $username, $password, $database);
 
     if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+      echo "Error: " . mysqli_error($conn);
     }
-
-    $fName = mysqli_real_escape_string($conn, $_POST["fName"]);
-    $prefName = mysqli_real_escape_string($conn, $_POST["prefName"]);
-    $lName = mysqli_real_escape_string($conn, $_POST["lName"]);
-    $studID = mysqli_real_escape_string($conn, $_POST["studID"]);
-    $DOB = mysqli_real_escape_string($conn, $_POST["DOB"]);
-    $gender = isset($_POST["gender"]) ? mysqli_real_escape_string($conn, $_POST["gender"]) : "genderDefault";
-    $ethnicity = mysqli_real_escape_string($conn, $_POST["ethnicity"]);
-    $intStatus = isset($_POST["intStatus"]) ? mysqli_real_escape_string($conn, $_POST["intStatus"]) : "intDefault";
-    $firstGen = isset($_POST["firstGen"]) ? mysqli_real_escape_string($conn, $_POST["firstGen"]) : "firstDefault";
-    $prefPhone = mysqli_real_escape_string($conn, $_POST["prefPhone"]);
-    $street = mysqli_real_escape_string($conn, $_POST["street"]);
-    $city = mysqli_real_escape_string($conn, $_POST["city"]);
-    $state = mysqli_real_escape_string($conn, $_POST["state"]);
-    $zipCode = mysqli_real_escape_string($conn, $_POST["zipCode"]);
-    $languages = mysqli_real_escape_string($conn, $_POST["languages"]);
-    $allergies = mysqli_real_escape_string($conn, $_POST["allergies"]);
+ 
+    $fName = mysqli_real_escape_string($conn, $_POST['fName']);
+    $prefName = mysqli_real_escape_string($conn, $_POST['prefName']);
+    $lName = mysqli_real_escape_string($conn, $_POST['lName']);
+    $studID = mysqli_real_escape_string($conn, $_POST['studID']);
+    $DOB = mysqli_real_escape_string($conn,date('Y-m-d', strtotime($_POST['DOB'])));
+    $gender = isset($_POST['gender']) ? mysqli_real_escape_string($conn, $_POST['gender']) : 'genderDefault';
+    $ethnicity = mysqli_real_escape_string($conn, $_POST['ethnicity']);
+    $intStatus = isset($_POST['intStatus']) ? mysqli_real_escape_string($conn, $_POST['intStatus']) : 'intDefault';
+    $firstGen = isset($_POST['firstGen']) ? mysqli_real_escape_string($conn, $_POST['firstGen']) : 'firstDefault';
+    $prefPhone = mysqli_real_escape_string($conn, $_POST['prefPhone']);
+    $street = mysqli_real_escape_string($conn, $_POST['street']);
+    $city = mysqli_real_escape_string($conn, $_POST['city']);
+    $state = mysqli_real_escape_string($conn, $_POST['state']);
+    $zipCode = mysqli_real_escape_string($conn, $_POST['zipCode']);
+    $languages = mysqli_real_escape_string($conn, $_POST['languages']);
+    $allergies = mysqli_real_escape_string($conn, $_POST['allergies']);
     
     //FERPA
-    $personalemail = mysqli_real_escape_string($conn, $_POST["personalemail"]);
-    $UNTemail = mysqli_real_escape_string($conn, $_POST["UNTemail"]);
-    $disclosureCheck = mysqli_real_escape_string($conn, $_POST["disclosureCheck"]);
-    $releaseCheck = mysqli_real_escape_string($conn, $_POST["releaseCheck"]);
-    $specificCheck = mysqli_real_escape_string($conn, $_POST["specificCheck"]);
-    $informCheck = mysqli_real_escape_string($conn, $_POST["informCheck"]);
-    $revokeCheck = mysqli_real_escape_string($conn, $_POST["revokeCheck"]);
-    $signature = mysqli_real_escape_string($conn, $_POST["signature"]);
-    $signatureDate = mysqli_real_escape_string($conn, $_POST["signatureDate"]);
+    $personalemail = mysqli_real_escape_string($conn, $_POST['personalemail']);
+    $UNTemail = mysqli_real_escape_string($conn, $_POST['UNTemail']);
+    $disclosureCheck = mysqli_real_escape_string($conn, $_POST['disclosureCheck']);
+    $releaseCheck = mysqli_real_escape_string($conn, $_POST['releaseCheck']);
+    $specificCheck = mysqli_real_escape_string($conn, $_POST['specificCheck']);
+    $informCheck = mysqli_real_escape_string($conn, $_POST['informCheck']);
+    $revokeCheck = mysqli_real_escape_string($conn, $_POST['revokeCheck']);
+    $signature = mysqli_real_escape_string($conn, $_POST['signature']);
+    $signatureDate = mysqli_real_escape_string($conn, $_POST['signatureDate']);
     
     //Education and Experience
-    $major = mysqli_real_escape_string($conn, $_POST["major"]);
-    $concentration = mysqli_real_escape_string($conn, $_POST["concentration"]);
-    $minor = mysqli_real_escape_string($conn, $_POST["minor"]);
-    $college = mysqli_real_escape_string($conn, $_POST["college"]);
-    $honors = isset($_POST["honors"]) ? mysqli_real_escape_string($conn, $_POST["honors"]) : "honDefault";
-    $GPA = mysqli_real_escape_string($conn, $_POST["GPA"]);
-    $classification = isset($_POST["classification"]) ? mysqli_real_escape_string($conn, $_POST["classification"]) : "classDefault";
-    $gradDate = mysqli_real_escape_string($conn, $_POST["gradDate"]);
-    $enrolledHours = mysqli_real_escape_string($conn, $_POST["enrolledHours"]);
+    $major = mysqli_real_escape_string($conn, $_POST['major']);
+    $concentration = mysqli_real_escape_string($conn, $_POST['concentration']);
+    $minor = mysqli_real_escape_string($conn, $_POST['minor']);
+    $college = mysqli_real_escape_string($conn, $_POST['college']);
+    $honors = isset($_POST['honors']) ? mysqli_real_escape_string($conn, $_POST['honors']) : 'honDefault';
+    $GPA = mysqli_real_escape_string($conn, $_POST['GPA']);
+    $classification = isset($_POST['classification']) ? mysqli_real_escape_string($conn, $_POST['classification']) : 'classDefault';
+    $gradDate = mysqli_real_escape_string($conn, $_POST['gradDate']);
+    $enrolledHours = mysqli_real_escape_string($conn, $_POST['enrolledHours']);
+    
 
     //Employment
-    $employmentStatus = isset($_POST["employmentStatus"]) ? mysqli_real_escape_string($conn, $_POST["employmentStatus"]) : "empDefault";
-    $employerName = mysqli_real_escape_string($conn, $_POST["employerName"]);
-    $workHours = mysqli_real_escape_string($conn, $_POST["workHours"]);
-    $clubs = mysqli_real_escape_string($conn, $_POST["clubs"]);
-    $clubHours = mysqli_real_escape_string($conn, $_POST["clubHours"]);
-    $discovery = isset($_POST["discovery"]) ? mysqli_real_escape_string($conn, $_POST["discovery"]) : "disDefault";
-    $contact = mysqli_real_escape_string($conn, $_POST["contact"]);
+    $employmentStatus = isset($_POST['employmentStatus']) ? mysqli_real_escape_string($conn, $_POST['employmentStatus']) : 'empDefault';
+    $employerName = mysqli_real_escape_string($conn, $_POST['employerName']);
+    $workHours = mysqli_real_escape_string($conn, $_POST['workHours']);
+    $clubs = mysqli_real_escape_string($conn, $_POST['clubs']);
+    $clubHours = mysqli_real_escape_string($conn, $_POST['clubHours']);
+    $discovery = isset($_POST['discovery']) ? mysqli_real_escape_string($conn, $_POST['discovery']) : 'disDefault';
+    $contact = mysqli_real_escape_string($conn, $_POST['contact']);
 
     //Travel and Accommodations
-    $travel = isset($_POST["travel"]) ? mysqli_real_escape_string($conn, $_POST["travel"]) : "travDefault" ;
-    $trans = isset($_POST["trans"]) ? mysqli_real_escape_string($conn, $_POST["trans"]) : "transDefault" ;
-    $mentorPref = mysqli_real_escape_string($conn, $_POST["mentorPref"]);
-    $goals = mysqli_real_escape_string($conn, $_POST["goals"]);
-    $interests = mysqli_real_escape_string($conn, $_POST["interests"]);
-    $industryPref = mysqli_real_escape_string($conn, $_POST["industryPref"]);
-    $mentorGenPrefCheck = isset($_POST["mentorGenPrefCheck"]) ? mysqli_real_escape_string($conn, $_POST["mentorGenPrefCheck"]) : "prefDefault" ;
-    $mentorGenderPref = mysqli_real_escape_string($conn, $_POST["mentorGenderPref"]);
-    $meetingCheck = mysqli_real_escape_string($conn, $_POST["meetingCheck"]);
-    $matchCheck = mysqli_real_escape_string($conn, $_POST["matchCheck"]);
+    $travel = isset($_POST['travel']) ? mysqli_real_escape_string($conn, $_POST['travel']) : 'travDefault';
+    $trans = isset($_POST['trans']) ? mysqli_real_escape_string($conn, $_POST['trans']) : 'transDefault';
+    $mentorPref = mysqli_real_escape_string($conn, $_POST['mentorPref']);
+    $goals = mysqli_real_escape_string($conn, $_POST['goals']);
+    $interests = mysqli_real_escape_string($conn, $_POST['interests']);
+    $industryPref = mysqli_real_escape_string($conn, $_POST['industryPref']);
+    $mentorGenPrefCheck = isset($_POST['mentorGenPrefCheck']) ? mysqli_real_escape_string($conn, $_POST['mentorGenPrefCheck']) : 'prefDefault';
+    $mentorGenderPref = mysqli_real_escape_string($conn, $_POST['mentorGenderPref']);
+    $meetingCheck = mysqli_real_escape_string($conn, $_POST['meetingCheck']);
+    $matchCheck = mysqli_real_escape_string($conn, $_POST['matchCheck']);
+
 
 
     // Construct an SQL query - very long I should try to multi line when more confident
-    $sql = "INSERT INTO mentees (mentee_id, first_name, preferred_name, last_name, 
+    $sql = "INSERT INTO mentees (first_name, preferred_name, last_name, 
                                 student_id, date_of_birth, gender, ethnicity, intl_student, 
                                 first_gen_student, phone_number, street_address, city, state, 
                                 zip_code, spoken_langs, food_allergies, personal_email, 
