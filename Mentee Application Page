@@ -1,15 +1,14 @@
 <html>
-    <head>
-	<title>UNT Professional Leadership program </title>
-	<meta name="description" content="Professional Leadership program">
-	<meta name="keywords" content="Professional Leadership Program UNT">
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="./Main.css">
-      	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
-    </head>
+  <head>
+    <title>UNT Professional Leadership program </title>
+    <meta name="description" content="Professional Leadership program">
+    <meta name="keywords" content="Professional Leadership Program UNT">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./Main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  </head>
     
-    <body>
-  
+  <body>
     <h1> Basic Info </h1>
     <div class="ferpa">
       <form action="/action_pagebasic.php">
@@ -25,7 +24,7 @@
         <input type="date" id="DOB" name="DOB" value=""><br><br>
         <label for="gender">Gender:</label><br>
         <select id="gender" name="gender">
-          <option value="default"></option>
+          <option value="genderDefault"></option>
           <option value="male">Male</option>
           <option value="female">Female</option> 
           <option value="agender">Agender</option>
@@ -43,15 +42,15 @@
         <p>*Occasionally, we provide special programming and opportunities for various student populations.* </p>
         <label for="intStatus">Are you classified as an international student? </label><br>
         <select id="intStatus" name="intStatus">
-          <option value="default"></option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option> 
+          <option value="intDefault"></option>
+          <option value="intYes">Yes</option>
+          <option value="intNo">No</option> 
         </select><br><br>
         <label for="firstGen"> Are you a first generation college student? </label><br>
         <select id="firstGen" name="firstGen">
-          <option value="default"></option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option> 
+          <option value="firstDefault"></option>
+          <option value="firstYes">Yes</option>
+          <option value="firstNo">No</option> 
         </select> <br><br><br>
         <label for="prefPhone">Preferred Phone Number:</label><br>
         <input type="tel" id="prefPhone" name="prefPhone" value=""><br><br>
@@ -117,14 +116,19 @@
         <input type="text" id="college" name="college" value=""><br><br>
         <label for="honors">Are you an active member of the UNT Honors College?</label><br>
         <select id="honors" name="honors">
-          <option value="default"></option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
+          <option value="honDefault"></option>
+          <option value="honYes">Yes</option>
+          <option value="honNo">No</option>
         </select><br><br>
         <label for="GPA">Cumulative GPA: </label><br>
         <input type="number" id="GPA" name="GPA" value=""><br><br>
         <label for="classification">What will your classification be in Fall 2023?</label><br>
-        <input type="text" id="classification" name="classification" value=""><br><br>
+        <select id="classification" name="classification">
+          <option value="classDefault"></option>
+          <option value="classSophomore">Sophomore</option>
+          <option value="classJunior">Junior</option>
+          <option value="classSenior">Senior</option>
+        </select><br><br>
         <label for="gradDate">Anticipated Graduation Date</label><br>
         <input type="date" id="gradDate" name="gradDate" value=""><br><br>
         <label for="enrolledHours">How many hours will you be enrolled in for Fall 2023? </label><br>
@@ -137,9 +141,9 @@
       <form action="/action_pagebasic.php">
         <label for="employmentStatus">Do you anticipate being employed during the Fall 2023 semester?</label><br>
         <select id="employmentStatus" name="employmentStatus">
-          <option value="default"></option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option> 
+          <option value="empDefault"></option>
+          <option value="empYes">Yes</option>
+          <option value="empNo">No</option> 
         </select><br><br>
         <label for="employerName"> Company/Employer Name</label><br>
         <input type="text" id="employerName" name="employerName" value=""><br><br>
@@ -151,39 +155,39 @@
         <input type="number" id="clubHours" name="clubHours" value=""><br><br>
         <label for="discovery"> How did you hear about PLP? </label><br>
         <select id="discovery" name="discovery">
-          <option value="default"></option>
-          <option value="no">Current PLP member</option>
-          <option value="no">Signage (banners, flyers, handouts, etc) </option> 
-          <option value="no">UNT Professor</option> 
-          <option value="no">UNT Staff member</option> 
-          <option value="no">E-mail</option> 
-          <option value="no">Word of Mouth</option> 
-          <option value="no">Newspaper or Radio</option> 
-          <option value="no">UNT or PLP Alumni</option> 
-          <option value="no">Business Executive or Professional</option> 
-          <option value="no">Class organization Presentation</option> 
-          <option value="no">Other</option> 
+          <option value="disDefault"></option>
+          <option value="current">Current PLP member</option>
+          <option value="poster">Signage (banners, flyers, handouts, etc) </option> 
+          <option value="professor">UNT Professor</option> 
+          <option value="staff">UNT Staff member</option> 
+          <option value="emailRecruit">E-mail</option> 
+          <option value="word">Word of Mouth</option> 
+          <option value="article">Newspaper or Radio</option> 
+          <option value="alumni">UNT or PLP Alumni</option> 
+          <option value="professional">Business Executive or Professional</option> 
+          <option value="org">Class organization Presentation</option> 
+          <option value="notListed">Other</option> 
         </select> <br><br>
         <label for="contact">Specific name of contact or source:</label><br>
         <input type="text" id="contact" name="contact" value=""><br><br>
       </form> 
     </div>			
-     
+    
     <h1> Program Info </h1>
     <div class="ferpa">
     <h2> Transportation </h2>
       <form action="/action_pagebasic.php">
         <label for="travel"> Some mentors will require that their mentee have transportation to meetings. Are you able to travel outside of Denton to meet your mentor? </label><br>
         <select id="travel" name="travel">
-          <option value="default"></option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option> 
+          <option value="travDefault"></option>
+          <option value="travYes">Yes</option>
+          <option value="travNo">No</option> 
         </select><br><br>
         <label for="trans">Do you have reliable transportation?</label><br>
         <select id="trans" name="trans">
-          <option value="default"></option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option> 
+          <option value="transDefault"></option>
+          <option value="transYes">Yes</option>
+          <option value="transNo">No</option> 
         </select><br>
       </form></div>
       <div class="ferpa">
@@ -198,22 +202,22 @@
         <input type="text" id="industryPref" name="industryPref" value=""><br><br>
         <label for="mentorGenPrefCheck">Do you have a mentor gender preference?</label><br>
         <select id="mentorGenPrefCheck" name="mentorGenPrefCheck">
-          <option value="default"></option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option> 
+          <option value="prefDefault"></option>
+          <option value="prefYes">Yes</option>
+          <option value="prefNo">No</option> 
         </select><br><br>
         <label for="mentorGenderPref">Gender preferred?</label><br>
         <input type="text" id="mentorGenderPref" name="mentorGenderPref" value=""><br>
       <h2> Member Requirements </h2>
-       <p> If selected as a member of the UNT Professional Leadership Program, I can commit to the following for the full Fall 2023 semester: </p>
-       <ul>
-         <li> Mandatory weekly attendence every Wednesday from 5:00 - 6:20pm </li>
-         <li> Enrolled in BUSI 4980 course. </li>
-         <li> Completion of required community engagement hours each semester </li>
-         <li> Attendance at PLP-sponsored networking events and student programs</li>
-         <li> Professionalism at all times including via social media</li>
-         <li> Compliance with UNT code of student conduct</li>
-       </ul>
+      <p> If selected as a member of the UNT Professional Leadership Program, I can commit to the following for the full Fall 2023 semester: </p>
+      <ul>
+        <li> Mandatory weekly attendence every Wednesday from 5:00 - 6:20pm </li>
+        <li> Enrolled in BUSI 4980 course. </li>
+        <li> Completion of required community engagement hours each semester </li>
+        <li> Attendance at PLP-sponsored networking events and student programs</li>
+        <li> Professionalism at all times including via social media</li>
+        <li> Compliance with UNT code of student conduct</li>
+      </ul>
         <form action="/action_pagebasic.php">
           <label for="meetingCheck">I agree to meet with my mentor at least once per month to cultivate a professional learning relationship, if selected as a PLP member. </label><br>
           <input type="checkbox" id="meetingCheck" name="meetingCheck" value=""><br><br>
