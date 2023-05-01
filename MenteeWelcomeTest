@@ -52,13 +52,9 @@
 					<li> Mentor Match - Student members will be paired with a mentor in late summer 2023 and are encouraged to begin meeting. </li>
 					<li> First Member Meeting - The first PLP meeting of the semester will take place on Wednesday during the first week of classes in August 2023. The meeting location is TBA and will take place from 5:00 - 6:20 p.m.</li>
 				</ul>
-			<p> Please note there are four application sections to complete. It should take you 15 - 30 minutes, depending on your background. </p>
-			<br>
-			<p> 
-			<input type="checkbox" id="" name="timeCheck" value=""> I understand this application must be completed in one sitting and wish to continue
-			</p>
-			<br>
-   			input type="submit" value="Continue">
+			<p> Please note there are four application sections to complete. It should take you 15 - 30 minutes, depending on your background. </p><br>
+			<p><input type="checkbox" id="understandCheck" name="understandCheck" value=""> I understand this application must be completed in one sitting and wish to continue</p><br>
+			<input type="submit" value="Continue">
 		</div>			
 		<div class="copyright">
 			<p> <span> © </span> 2023 University of North Texas. All Rights Reserved.</p>
