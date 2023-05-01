@@ -1,13 +1,14 @@
 <html>
-  <head>
-		<title>UNT Professional Leadership program </title>
-		<meta name="description" content="Professional Leadership program">
-		<meta name="keywords" content="Professional Leadership Program UNT">
-		<meta charset="utf-8">
-		  <link rel="stylesheet" type="text/css" href="./Main.css">
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
-	</head>
-	<body>
+    <head>
+	<title>UNT Professional Leadership program </title>
+	<meta name="description" content="Professional Leadership program">
+	<meta name="keywords" content="Professional Leadership Program UNT">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./Main.css">
+      	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+    </head>
+    
+    <body>
   
     <h1> Basic Info </h1>
     <div class="ferpa">
