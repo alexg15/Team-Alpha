@@ -1,5 +1,7 @@
 //Variable declarations for PHP
 
+//*Mentee Application Page*
+
 //Basic Info
 $fName = $_POST["fName"];
 $prefName = $_POST["prefName"];
@@ -60,4 +62,9 @@ $mentorGenPrefCheck = isset(_POST["mentorGenPrefCheck"]) ? "prefDefault" : "pref
 $mentorGenderPref = $_POST["mentorGenderPref"];
 $meetingCheck = $_POST["meetingCheck"];
 $matchCheck = $_POST["matchCheck"];
+$stmt->execute();
+
+//*Mentee Welcome Page*
+
+$understandCheck = $_POST["understandCheck"];
 $stmt->execute();
