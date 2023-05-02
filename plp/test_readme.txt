@@ -7,9 +7,8 @@ run xampp:
 Start Apache
 Start MySQL
 
-db url:
-localhost/phpmyadmin/
-manually import the db form /db/plptest.sql to phpmyadmin
+db url: localhost/phpmyadmin/
+manually import the db form /db/plp_prod.sql to phpmyadmin
 
 if not attached
 ex schema, but make mentee_id a pk
