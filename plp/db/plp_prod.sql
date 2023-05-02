@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2023 at 10:43 AM
+-- Generation Time: May 02, 2023 at 06:08 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -139,7 +139,9 @@ INSERT INTO `mentees` (`mentee_id`, `first_name`, `preferred_name`, `last_name`,
 (51, 'Derrick', NULL, 'Johnston', '321312123', '2023-04-15', 'female', 'terran', '1', '1', ' 806-246-7278', '3389 Timber Oak Drive', 'Amherst', 'Texas', '79312', 'English', 'none', 'testemail@gmail.com', 'testemail@my.unt.edu', '1', '1', '1', '1', '1', 'test signature', '2023-04-14', 'Business', NULL, 'dancing', 'UNT', '0', '3.640', 'Senior', '2023-04-29', 12, '1', 'Taco Bell', 40, 'test club', 3, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '0', NULL, '1', '1'),
 (52, 'Adaline', NULL, 'Dietrich', '321312123', '2023-04-15', 'male', 'terran', '1', '1', ' 806-246-7278', '3389 Timber Oak Drive', 'Amherst', 'Texas', '79312', 'English', 'none', 'testemail@gmail.com', 'testemail@my.unt.edu', '1', '1', '1', '1', '1', 'test signature', '2023-04-14', 'Business', NULL, 'dancing', 'UNT', '0', '3.670', 'Senior', '2023-04-29', 12, '1', 'Taco Bell', 40, 'test club', 3, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '0', NULL, '1', '1'),
 (53, 'Germaine', NULL, 'Lebsack', '321312123', '2023-04-15', 'male', 'terran', '1', '1', ' 806-246-7278', '3389 Timber Oak Drive', 'Amherst', 'Texas', '79312', 'English, Spanish', 'none', 'testemail@gmail.com', 'testemail@my.unt.edu', '1', '1', '1', '1', '1', 'test signature', '2023-04-14', 'Computer Science', NULL, 'snorkling', 'UNT', '0', '3.600', 'Senior', '2023-04-29', 12, '1', 'Self', 20, 'test club', 5, NULL, NULL, '1', '1', NULL, NULL, NULL, 'design', '1', 'female', '1', '1'),
-(54, 'Annie', NULL, 'Langworth', '321312123', '2023-04-15', 'female', 'terran', '1', '1', ' 806-246-7278', '3389 Timber Oak Drive', 'Amherst', 'Texas', '79312', 'English, Spanish', 'none', 'testemail@gmail.com', 'testemail@my.unt.edu', '1', '1', '1', '1', '1', 'test signature', '2023-04-14', 'Computer Science', NULL, 'snorkling', 'UNT', '0', '3.600', 'Senior', '2023-04-29', 12, '1', 'Self', 20, 'test club', 5, NULL, NULL, '1', '1', NULL, NULL, NULL, 'design', '0', NULL, '1', '1');
+(54, 'Annie', NULL, 'Langworth', '321312123', '2023-04-15', 'female', 'terran', '1', '1', ' 806-246-7278', '3389 Timber Oak Drive', 'Amherst', 'Texas', '79312', 'English, Spanish', 'none', 'testemail@gmail.com', 'testemail@my.unt.edu', '1', '1', '1', '1', '1', 'test signature', '2023-04-14', 'Computer Science', NULL, 'snorkling', 'UNT', '0', '3.600', 'Senior', '2023-04-29', 12, '1', 'Self', 20, 'test club', 5, NULL, NULL, '1', '1', NULL, NULL, NULL, 'design', '0', NULL, '1', '1'),
+(57, 'jim', '', 'reynolds', '123123123', '1989-08-18', 'male', 'terran', 'intNo', 'firstNo', '998 888 8888', 'Test address', 'Denton', 'Texas', '54544', 'English, Spanish', 'tree nuts', 'testunt@gmail.com', 'testunt@my.unt.edu', '', '', '', '', '', 'sig', '1818-12-18', 'Engineering', 'AI', 'Data science', 'college', 'honNo', '3.000', 'classDefau', '2023-06-13', 12, 'empNo', 'google', 40, 'robotics', 10, 'current', 'myplp contact', 'travNo', 'transNo', 'smart', 'to learn', 'hobbies', 'Defense', 'prefNo', 'transman', '', ''),
+(60, 'jill', '', 'reynolds', '123123123', '2022-04-14', 'female', 'terran', 'intNo', 'firstNo', '998 888 8888', 'Test address', 'denton', 'texas', '75465', 'English', 'tree nuts', 'testunt@gmail.com', 'testunt@my.unt.edu', '1', '1', '1', '1', '1', 'sig', '2022-04-15', 'Engineering', 'AI', 'Electrical and Computers', 'college', 'honNo', '3.660', 'classDefau', '2021-03-29', 12, 'empNo', 'company', 20, 'robotics', 0, 'professor', 'email', 'travNo', 'transNo', 'smart', 'to learn', 'hobbies', 'Defense', 'prefNo', 'preferNotDisclose', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -176,7 +178,7 @@ CREATE TABLE `mentors` (
   `gender_pref` varchar(22) DEFAULT NULL,
   `mentor_majors` varchar(100) DEFAULT NULL,
   `transportation` varchar(10) NOT NULL,
-  `professional_exp` varchar(254) DEFAULT NULL,
+  `prof_exp_yrs` varchar(100) DEFAULT NULL,
   `plp_ref` varchar(100) DEFAULT NULL,
   `plp_ref_email` varchar(254) DEFAULT NULL,
   `plp_ref_affil` varchar(254) DEFAULT NULL,
@@ -208,7 +210,7 @@ CREATE TABLE `mentors` (
 -- Dumping data for table `mentors`
 --
 
-INSERT INTO `mentors` (`mentor_id`, `first_name`, `preferred_name`, `last_name`, `gender`, `ethnicity`, `unt_alumni_check`, `plp_alumni_check`, `mentor_exp_check`, `mentor_exp_yrs`, `phone_number`, `street_address`, `city`, `state`, `zip_code`, `mailing_check`, `mailing_address`, `mailing_city`, `mailing_state`, `mailing_zip_code`, `citizenship_country`, `spoken_langs`, `motivation`, `goals`, `gender_pref_check`, `gender_pref`, `mentor_majors`, `transportation`, `professional_exp`, `plp_ref`, `plp_ref_email`, `plp_ref_affil`, `matching_check`, `meeting_check`, `pii_share_check`, `prof_summary`, `industries`, `company`, `job`, `job_desc`, `career_field`, `hire_date`, `former_company`, `former_job`, `former_job_desc`, `former_hire_date`, `former_leave_date`, `college`, `degree`, `major`, `minor`, `graduation_year`, `certifications`, `academic_affils`) VALUES
+INSERT INTO `mentors` (`mentor_id`, `first_name`, `preferred_name`, `last_name`, `gender`, `ethnicity`, `unt_alumni_check`, `plp_alumni_check`, `mentor_exp_check`, `mentor_exp_yrs`, `phone_number`, `street_address`, `city`, `state`, `zip_code`, `mailing_check`, `mailing_address`, `mailing_city`, `mailing_state`, `mailing_zip_code`, `citizenship_country`, `spoken_langs`, `motivation`, `goals`, `gender_pref_check`, `gender_pref`, `mentor_majors`, `transportation`, `prof_exp_yrs`, `plp_ref`, `plp_ref_email`, `plp_ref_affil`, `matching_check`, `meeting_check`, `pii_share_check`, `prof_summary`, `industries`, `company`, `job`, `job_desc`, `career_field`, `hire_date`, `former_company`, `former_job`, `former_job_desc`, `former_hire_date`, `former_leave_date`, `college`, `degree`, `major`, `minor`, `graduation_year`, `certifications`, `academic_affils`) VALUES
 (1, 'Hermina', NULL, 'Zieme', '', 'terran', '1', '1', '1', '5', '218 310 2917', '97012 Chadrick Station', 'El Paso', 'Texas', '79960', '1', NULL, NULL, NULL, NULL, 'US', 'English', 'share knowledge', NULL, '1', 'male', 'Business', '1', 'experience at the business factory', NULL, NULL, NULL, '1', '1', '1', 'making businesses at the business factory', 'Business Industry', 'Corporate Business', 'Business Analyst', ' Responsible for analyzing the business', 'Field of Business', '2024-31-3', NULL, NULL, NULL, NULL, NULL, 'Business College', 'BMA', 'Business', 'Farming', '1998', 'certified to do business', '0'),
 (2, 'Bob', NULL, 'Thompson', 'male', 'terran', '0', '0', '0', NULL, '448-914-9042', 'test address', 'Denton', 'Texas', '79312', '0', NULL, NULL, NULL, NULL, 'US', 'English', NULL, NULL, '1', 'male', 'Finance', '1', NULL, NULL, NULL, NULL, '1', '1', '1', NULL, NULL, 'Buccees', 'Accountant', 'numbers stuff', NULL, '2023-01-01', NULL, NULL, NULL, NULL, NULL, 'OSU', 'BMA', 'Finance', 'dancing', '2018', 'CPA', NULL),
 (3, 'Cindy', NULL, 'Thompson', 'female', 'terran', '0', '0', '0', NULL, '448-914-9042', 'test address', 'Denton', 'Texas', '79312', '0', NULL, NULL, NULL, NULL, 'US', 'English', NULL, NULL, '1', 'male', 'Business', '1', NULL, NULL, NULL, NULL, '1', '1', '1', NULL, NULL, 'Buccees', 'Accountant', 'numbers stuff', NULL, '2023-01-01', NULL, NULL, NULL, NULL, NULL, 'OSU', 'BMA', 'Business', 'dancing', '2017', 'taxes', NULL),
@@ -250,7 +252,8 @@ INSERT INTO `mentors` (`mentor_id`, `first_name`, `preferred_name`, `last_name`,
 (39, 'Jamal', NULL, 'Thompson', 'female', 'terran', '0', '0', '0', NULL, '448-914-9042', 'test address', 'Denton', 'Texas', '79312', '0', NULL, NULL, NULL, NULL, 'US', 'English', NULL, NULL, '0', NULL, 'Finance', '1', NULL, NULL, NULL, NULL, '1', '1', '1', NULL, NULL, 'Buccees', 'Accountant', 'numbers stuff', NULL, '2023-01-01', NULL, NULL, NULL, NULL, NULL, 'OSU', 'BMA', 'Finance', 'dancing', '2017', 'taxes', NULL),
 (40, 'Krystel', NULL, 'Thompson', 'female', 'terran', '0', '0', '0', NULL, '448-914-9042', 'test address', 'Denton', 'Texas', '79312', '0', NULL, NULL, NULL, NULL, 'US', 'English', NULL, NULL, '0', NULL, 'Finance', '1', NULL, NULL, NULL, NULL, '1', '1', '1', NULL, NULL, 'Buccees', 'Accountant', 'numbers stuff', NULL, '2023-01-01', NULL, NULL, NULL, NULL, NULL, 'OSU', 'BMA', 'Finance', 'dancing', '2017', 'taxes', NULL),
 (41, 'Rozella', NULL, 'Thompson', 'female', 'terran', '0', '0', '0', NULL, '448-914-9042', 'test address', 'Denton', 'Texas', '79312', '0', NULL, NULL, NULL, NULL, 'US', 'English', NULL, NULL, '0', NULL, 'Engineering', '1', NULL, NULL, NULL, NULL, '1', '1', '1', NULL, NULL, 'Buccees', 'Accountant', 'numbers stuff', NULL, '2023-01-01', NULL, NULL, NULL, NULL, NULL, 'OSU', 'BMA', 'Engineering', 'dancing', '2017', 'taxes', NULL),
-(42, 'Bette', NULL, 'Thompson', 'male', 'terran', '0', '0', '0', NULL, '448-914-9042', 'test address', 'Denton', 'Texas', '79312', '0', NULL, NULL, NULL, NULL, 'US', 'English', NULL, NULL, '0', NULL, 'Engineering', '0', NULL, NULL, NULL, NULL, '1', '1', '1', NULL, NULL, 'Buccees', 'Accountant', 'numbers stuff', NULL, '2023-01-01', NULL, NULL, NULL, NULL, NULL, 'OSU', 'BMA', 'Engineering', 'dancing', '2017', 'taxes', NULL);
+(42, 'Bette', NULL, 'Thompson', 'male', 'terran', '0', '0', '0', NULL, '448-914-9042', 'test address', 'Denton', 'Texas', '79312', '0', NULL, NULL, NULL, NULL, 'US', 'English', NULL, NULL, '0', NULL, 'Engineering', '0', NULL, NULL, NULL, NULL, '1', '1', '1', NULL, NULL, 'Buccees', 'Accountant', 'numbers stuff', NULL, '2023-01-01', NULL, NULL, NULL, NULL, NULL, 'OSU', 'BMA', 'Engineering', 'dancing', '2017', 'taxes', NULL),
+(43, 'jack', '', 'jackson', 'male', 'terran', 'No', 'No', 'No', '3', '999 999 9999', 'test address', 'denton', 'texas', '55555', 'No', '', '', '', '', 'US', 'English', 'why', 'goals', 'No', 'preferNotDisclose', 'Engineering', 'true', ' 10', 'no referral', 'no emial', 'no affil', 'No', 'No', 'No', 'engineering STUFF', 'stuff', 'company', 'engineer', 'do engineer stuff', 'Accounting and auditing services', '', '', '', '', '', '', 'UNT', 'Electrical Engineering', 'Engineering', 'Electrical and Computers', '2005', 'T Class license', '');
 
 -- --------------------------------------------------------
 
@@ -299,13 +302,13 @@ ALTER TABLE `mentor_mentee`
 -- AUTO_INCREMENT for table `mentees`
 --
 ALTER TABLE `mentees`
-  MODIFY `mentee_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'pk auto inc', AUTO_INCREMENT=55;
+  MODIFY `mentee_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'pk auto inc', AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `mentors`
 --
 ALTER TABLE `mentors`
-  MODIFY `mentor_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `mentor_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `mentor_mentee`
