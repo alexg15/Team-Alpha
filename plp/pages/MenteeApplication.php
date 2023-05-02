@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $sql = "INSERT INTO mentees (first_name, preferred_name, last_name, student_id, date_of_birth, gender, ethnicity, intl_student, first_gen_student, phone_number, street_address, city, state, zip_code, spoken_langs, food_allergies, personal_email, unt_email, disclosure_check, release_check, specific_check, inform_check, revoke_check, signature, signature_date, major, concentrations, minor, college, honors, gpa, class_level, graduation_date, semester_hours, employment_status, employer_name, work_hours, clubs, club_hours, plp_discovery_method, plp_contact, travel, transportation, mentor_pref, goals, interests, industry_pref, gender_pref_check, gender_pref, meeting_check, match_check) 
                       VALUES ('$fName', '$prefName', '$lName', '$studID', '$DOB', '$gender', '$ethnicity', '$intStatus', '$firstGen', '$prefPhone', '$street', '$city', '$state', '$zipCode', '$languages', '$allergies', '$personalemail', '$UNTemail', '$disclosureCheck', '$releaseCheck', '$specificCheck', '$informCheck', '$revokeCheck', '$signature', '$signatureDate', '$major', '$concentration', '$minor', '$college', '$honors', '$GPA', '$classification', '$gradDate', '$enrolledHours', '$employmentStatus', '$employerName', '$workHours', '$clubs', '$clubHours', '$discovery', '$contact', '$travel', '$trans', '$mentorPref', '$goals', '$interests', '$industryPref', '$mentorGenPrefCheck', '$mentorGenderPref', '$meetingCheck', '$matchCheck')";
-
+  echo $sql;
   // Execute the query
   if (mysqli_query($conn, $sql)) {
     echo "User record saved successfully";
