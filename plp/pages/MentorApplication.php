@@ -16,8 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   //echo "Connected successfully to database";    
 
   $fname = $_POST['fname'];
-  $pname = $_POST['pname'];
+  $prefname = $_POST['prefname'];
   $lname = $_POST['lname'];
+  $gender = isset($_POST["gender"]) ? $_POST["gender"] : "genderDefault";
+  $genderOptions = array("male", "female", "agender", "genderQueer", "genderNonConforming", "nonbinary", "transgender", "transman", "transwoman", "other", "preferNotDisclose");
   $ethnicity = $_POST['ethnicity'];
   $untalumni = $_POST['untalumni'];
   $plpalumni = $_POST['plpalumni'];
@@ -36,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $citizen = $_POST['citizen'];
   $lang = $_POST['lang'];
 
+  $mentor_motivation = $_POST["mentor_motivation"];
   $mentor_goals = $_POST["mentor_goals"];
   $mentee_gender_pref = $_POST["mentee_gender_pref"];
   $gender_preferred = $_POST["gender_preferred"];
@@ -67,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $former_company_name = $_POST["former_company_name"];
   $former_job_title = $_POST["former_job_title"];
   $former_job_description = $_POST["former_job_description"];
-  $former_career_field = $_POST["former_career_field"];
+  //$former_career_field = $_POST["former_career_field"];
   $former_start_of_employment = $_POST["former_start_of_employment"];
   $former_end_of_employment = $_POST["former_end_of_employment"];
 
@@ -100,12 +103,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $diffzip = mysqli_real_escape_string($conn, $diffzip);
   $citizen = mysqli_real_escape_string($conn, $citizen);
   $lang = mysqli_real_escape_string($conn, $lang);
+  $mentor_motivation = mysqli_real_escape_string($conn, $mentor_motivation);
   $mentor_goals = mysqli_real_escape_string($conn, $mentor_goals);
   $mentee_gender_pref = mysqli_real_escape_string($conn, $mentee_gender_pref);
   $gender_preferred = mysqli_real_escape_string($conn, $gender_preferred);
   $pref_stud_majors = mysqli_real_escape_string($conn, $pref_stud_majors);
   $transport_preference = mysqli_real_escape_string($conn, $transport_preference);
-  $topics_preference = mysqli_real_escape_string($conn, $topics_preference);
+
   $years_of_exp = mysqli_real_escape_string($conn, $years_of_exp);
   $mentor_referral = mysqli_real_escape_string($conn, $mentor_referral);
   $referral_email = mysqli_real_escape_string($conn, $referral_email);
@@ -126,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $former_company_name = mysqli_real_escape_string($conn, $former_company_name);
   $former_job_title = mysqli_real_escape_string($conn, $former_job_title);
   $former_job_description = mysqli_real_escape_string($conn, $former_job_description);
-  $former_career_field = mysqli_real_escape_string($conn, $former_career_field);
+
   $former_start_of_employment = mysqli_real_escape_string($conn, $former_start_of_employment);
   $former_end_of_employment = mysqli_real_escape_string($conn, $former_end_of_employment);
 
@@ -138,20 +142,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $certs = mysqli_real_escape_string($conn, $certs);
   $acadAffil = mysqli_real_escape_string($conn, $acadAffil);
 
-  $sql = "INSERT INTO mentors (first_name, preferred_name, last_name, gender, ethnicity, unt_alumni_check, plp_alumni_check, mentor_exp_check, mentor_exp_yrs, phone_number, street_address, city, state, zip_code, mailing_check, mailing_address, mailing_city, mailing_state, mailing_zip_code, citizenship_country, spoken_langs, motivation, goals, gender_pref_check, gender_pref, mentor_majors, transportation, professional_exp, plp_ref, plp_ref_email, plp_ref_affil, matching_check, meeting_check, pii_share_check, prof_summary, industries, company, job, job_desc, career_field, hire_date, former_company, former_job, former_job_desc, former_hire_date, former_leave_date, college, degree, major, minor, graduation_year, certifications, academic_affils) 
-    VALUES ('$fname', '$prefname', '$lname', '$ethnicity', '$untalumni', '$plpalumni', '$served', '$yearsserved', '$phnumber', '$streetadd', '$city', '$state', '$zip', '$differadd', '$diffmail', $diffcity, '$diffstate', '$diffzip', '$citizen', '$lang', '$mentor_goals', '$mentee_gender_pref', '$gender_preferred', '$pref_stud_majors', '$transport_preference', '$topics_preference', '$years_of_exp', '$mentor_referral', '$referral_email', '$referral_affiliation', '$ackn_match', '$ackn_meet', '$ackn_share', '$professional_summary', '$industry_experience', '$company_name', '$job_title', '$job_description', '$career_field', '$start_of_employment', '$former_company_name', '$former_job_title', '$former_job_description', '$former_career_field', '$former_start_of_employment', '$former_end_of_employment','$uniName','$degree','$major','$minor','$gradYear','$certs','$acadAffil')";
+  //$topics_preference = mysqli_real_escape_string($conn, $topics_preference);
+  //$former_career_field = mysqli_real_escape_string($conn, $former_career_field);
 
-  echo $sql;
-  // Execute the query
-  if (mysqli_query($conn, $sql)) {
-    echo "User record saved successfully";
-  } else {
-    echo "Error: " . mysqli_error($conn);
-  }
-  // Close the database connection
-  mysqli_close($conn);
+ // $sql = "INSERT INTO mentors (first_name, preferred_name, last_name, gender, ethnicity, unt_alumni_check, plp_alumni_check, mentor_exp_check, mentor_exp_yrs, phone_number, street_address, city, state, zip_code, mailing_check, mailing_address, mailing_city, mailing_state, mailing_zip_code, citizenship_country, spoken_langs, motivation, goals, gender_pref_check, gender_pref, mentor_majors, transportation, professional_exp, plp_ref, plp_ref_email, plp_ref_affil, matching_check, meeting_check, pii_share_check, prof_summary, industries, company, job, job_desc, career_field, hire_date, former_company, former_job, former_job_desc, former_hire_date, former_leave_date, college, degree, major, minor, graduation_year, certifications, academic_affils) 
+   //                   VALUES ('$fname', '$prefname', '$lname', '$gender', '$ethnicity', '$untalumni', '$plpalumni', '$served', '$yearsserved', '$phnumber', '$streetadd', '$city', '$state', '$zip', '$differadd', '$diffmail', '$diffcity', '$diffstate', '$diffzip', '$citizen', '$lang', '$mentor_goals', '$mentee_gender_pref', '$gender_preferred', '$pref_stud_majors', '$transport_preference', '$years_of_exp', '$mentor_referral', '$referral_email', '$referral_affiliation', '$ackn_match', '$ackn_meet', '$ackn_share', '$professional_summary', '$industry_experience', '$company_name', '$job_title', '$job_description', '$career_field', '$start_of_employment', '$former_company_name', '$former_job_title', '$former_job_description', '$former_start_of_employment', '$former_end_of_employment','$uniName','$degree','$major','$minor','$gradYear','$certs','$acadAffil')";
 
-  exit();
+$sql = "INSERT INTO mentors (first_name, preferred_name, last_name, gender, ethnicity, unt_alumni_check, plp_alumni_check, mentor_exp_check, mentor_exp_yrs, phone_number, street_address, city, state, zip_code, mailing_check, mailing_address, mailing_city, mailing_state, mailing_zip_code, citizenship_country, spoken_langs, motivation, goals, gender_pref_check, gender_pref, mentor_majors, transportation,  prof_exp_yrs, plp_ref, plp_ref_email, plp_ref_affil, matching_check, meeting_check, pii_share_check, prof_summary, industries, company, job, job_desc, career_field, hire_date, former_company, former_job, former_job_desc, former_hire_date, former_leave_date, college, degree, major, minor, graduation_year, certifications, academic_affils)
+VALUES ('$fname', '$prefname', '$lname', '$gender', '$ethnicity', '$untalumni', '$plpalumni', '$served', '$yearsserved', '$phnumber', '$streetadd', '$city', '$state', '$zip', '$differadd', '$diffmail', '$diffcity', '$diffstate', '$diffzip', '$citizen', '$lang', '$mentor_motivation', '$mentor_goals', '$mentee_gender_pref', '$gender_preferred', '$pref_stud_majors', '$transport_preference', ' $years_of_exp', '$mentor_referral', '$referral_email', '$referral_affiliation', '$ackn_match', '$ackn_meet', '$ackn_share', '$professional_summary', '$industry_experience', '$company_name', '$job_title', '$job_description', '$career_field', '$start_of_employment', '$former_company_name', '$former_job_title', '$former_job_description', '$former_start_of_employment', '$former_end_of_employment', '$uniName', '$degree', '$major', '$minor', '$gradYear', '$certs', '$acadAffil')";
+
+
+echo $sql;
+
+// Execute the query
+if (mysqli_query($conn, $sql)) {
+echo "User record saved successfully";
+} else {
+echo "Error: " . mysqli_error($conn);
+}
+
+// Close the database connection
+mysqli_close($conn);
+
 }
 ?>
 
@@ -173,13 +185,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <form method="POST">
     <label for="fname">First Name:</label><br>
     <input type="text" id="fname" name="fname" value="" required><br>
-    <label for="pname">Preferred First Name:</label><br>
-    <input type="text" id="pname" name="pname" value=""><br>
+    <label for="prefname">Preferred First Name:</label><br>
+    <input type="text" id="prefname" name="prefname" value=""><br>
     <label for="lname">Last Name:</label><br>
     <input type="text" id="lname" name="lname" value="" required><br><br>
     <label for="gender">Gender:</label><br>
     <select id="gender" name="gender" required>
-      <option value="default"></option>
+      <option value="genderDefault"></option>
       <option value="male">Male</option>
       <option value="female">Female</option>
       <option value="agender">Agender</option>
@@ -246,8 +258,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     <h1> Mentoring Details</h1>
-    <label for="mentorDescr"> Why do you want to be a PLP mentor? </label><br>
-    <input type="text" id="mentorDescr" name="mentorDescr" value=""><br>
+    <label for="mentor_motivation"> Why do you want to be a PLP mentor? </label><br>
+    <input type="text" id="mentor_motivation" name="mentor_motivation" value=""><br>
     <label for="mentor_goals"> What are your goals / expectations for the mentoring relationship? </label><br>
     <input type="text" id="mentor_goals" name="mentor_goals" value=""><br>
     <!--dropdown textbox for this data-->
@@ -381,7 +393,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <option value="Web development and design">
       <option value="Writing and publishing">
     </datalist>
-
+    <label for="start_of_employment">Start of employment</label><br>
+    <input type="text" id="start_of_employment" name="start_of_employment" value=""><br><br>
 
     <h1> Previous Work Experience </h1>
     <label for="former_company_name">Former Company Name</label><br>
