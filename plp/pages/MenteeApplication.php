@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $informCheck = $_POST["informCheck"];
   $revokeCheck = $_POST["revokeCheck"];
   $signature = $_POST["signature"];
-  $signatureDate = $_POST["signatureDate"];
+  $signatureDate = date('Y-m-d', strtotime($_POST['signatureDate']));
 
   //Education and Experience
   $major = $_POST["major"];
@@ -60,9 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo 'GPA is not numeric';
   }
   $classification = isset($_POST["classification"]) ? ($_POST["classification"] == "Sophomore" ? "classSophomore" : ($_POST["classification"] == "Junior" ? "classJunior" : ($_POST["classification"] == "Senior" ? "classSenior" : "classDefault"))) : "classDefault";
-  $gradDate = $_POST["gradDate"];
+  $gradDate = date('Y-m-d', strtotime($_POST['gradDate']));
   $enrolledHours = $_POST["enrolledHours"];
-
   //Employment
   $employmentStatus = isset($_POST["employmentStatus"]) ? ($_POST["employmentStatus"] == "Yes" ? "empYes" : "empNo") : "empDefault";
   $employerName = $_POST["employerName"];
@@ -145,7 +144,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $matchCheck = mysqli_real_escape_string($conn, $matchCheck);
 
 
-  $sql = "INSERT INTO mentees (first_name, preferred_name, last_name, student_id, date_of_birth, gender, ethnicity, intl_student, first_gen_student, phone_number, street_address, city, state, zip_code, spoken_langs, food_allergies, personal_email, unt_email, disclosure_check, release_check, specific_check, inform_check, revoke_check, signature, signature_date, major, concentrations, minor, college, honors, gpa, class_level, graduation_date, semester_hours, employment_status, employer_name, work_hours, clubs, club_hours, plp_discovery_method, plp_contact, travel, transportation, mentor_pref, goals, interests, industry_pref, gender_pref_check, gender_pref, meeting_check, match_check) VALUES ('$fName', '$prefName', '$lName', '$studID', '$DOB', '$gender', '$ethnicity', '$intStatus', '$firstGen', '$prefPhone', '$street', '$city', '$state', '$zipCode', '$languages', '$allergies', '$personalemail', '$UNTemail', '$disclosureCheck', '$releaseCheck', '$specificCheck', '$informCheck', '$revokeCheck', '$signature', '$signatureDate', '$major', '$concentration', '$minor', '$college', '$honors', '$GPA', '$classification', '$gradDate', '$enrolledHours', '$employmentStatus', '$employerName', '$workHours', '$clubs', '$clubHours', '$discovery', '$contact', '$travel', '$trans', '$mentorPref', '$goals', '$interests', '$industryPref', '$mentorGenPrefCheck', '$mentorGenderPref', '$meetingCheck', '$matchCheck')";
+  $sql = "INSERT INTO mentees (first_name, preferred_name, last_name, student_id, date_of_birth, gender, ethnicity, intl_student, first_gen_student, phone_number, street_address, city, state, zip_code, spoken_langs, food_allergies, personal_email, unt_email, disclosure_check, release_check, specific_check, inform_check, revoke_check, signature, signature_date, major, concentrations, minor, college, honors, gpa, class_level, graduation_date, semester_hours, employment_status, employer_name, work_hours, clubs, club_hours, plp_discovery_method, plp_contact, travel, transportation, mentor_pref, goals, interests, industry_pref, gender_pref_check, gender_pref, meeting_check, match_check) 
+                      VALUES ('$fName', '$prefName', '$lName', '$studID', '$DOB', '$gender', '$ethnicity', '$intStatus', '$firstGen', '$prefPhone', '$street', '$city', '$state', '$zipCode', '$languages', '$allergies', '$personalemail', '$UNTemail', '$disclosureCheck', '$releaseCheck', '$specificCheck', '$informCheck', '$revokeCheck', '$signature', '$signatureDate', '$major', '$concentration', '$minor', '$college', '$honors', '$GPA', '$classification', '$gradDate', '$enrolledHours', '$employmentStatus', '$employerName', '$workHours', '$clubs', '$clubHours', '$discovery', '$contact', '$travel', '$trans', '$mentorPref', '$goals', '$interests', '$industryPref', '$mentorGenPrefCheck', '$mentorGenderPref', '$meetingCheck', '$matchCheck')";
 
   // Execute the query
   if (mysqli_query($conn, $sql)) {
@@ -197,11 +197,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <option value="transman">Transman</option>
       <option value="transwoman">Transwoman</option>
       <option value="other">Other</option>
-      <option value="preferNotDisclose" selected>Prefer not to disclose</option>
+      <option value="preferNotDisclose">Prefer not to disclose</option>
     </select><br><br>
     <label for="ethnicity">Ethnicity:</label><br>
     <input type="text" id="ethnicity" name="ethnicity" value="" required><br><br><br>
-    <p>*Occasionally, we provide special programming and opportunities for various student populations.* </p>
+    <p>Occasionally, we provide special programming and opportunities for various student populations.* </p>
     <label for="intStatus">Are you classified as an international student? </label><br>
     <select id="intStatus" name="intStatus" required>
       <option value="intDefault"></option>
@@ -223,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <label for="state">State:</label><br>
     <input type="text" id="state" name="state" value="" required><br><br>
     <label for="zipCode">Zip Code:</label><br>
-    <input type="number" id="zipCode" name="zipCode" value="" required><br><br>
+    <input type="text" id="zipCode" name="zipCode" value="" required><br><br>
     <label for="languages">What languages do you speak?</label><br>
     <input type="text" id="languages" name="languages" value="" required><br><br>
     <label for="allergies">Please list any food allergies or dietary restrictions:</label><br>
@@ -237,17 +237,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <label for="disclosureCheck">I hereby voluntarily authorize the University of North Texas department(s) identified
       below to disclose personally identifiable information from my educational records: UNT Professional Leadership
       Program</label><br>
-    <input type="checkbox" id="disclosureCheck" name="disclosureCheck" value="" required><br><br>
+    <input type="checkbox" id="disclosureCheck" name="disclosureCheck" value="1" required><br><br>
     <label for="releaseCheck">I understand that the following information is considered directory information under
       FERPA and may be released:</label><br>
     <label> Name, address, major field of study, participation in officially recognized activities and sports, weight
       and height for members of athletic teams, dates of attendance, enrollment status, classification, degrees, awards
       and honors received, expected graduation date, dissertation and thesis titles, most recent school attended, and
       photograph</label><br>
-    <input type="checkbox" id="releaseCheck" name="releaseCheck" value="" required><br><br>
+    <input type="checkbox" id="releaseCheck" name="releaseCheck" value="1" required><br><br>
     <label for="specificCheck">Specifically, I authorize release of the following non-directory information:
       University-assigned email addresses, Date of birth, GPA, resume </label><br>
-    <input type="checkbox" id="specificCheck" name="specificCheck" value="" required><br><br>
+    <input type="checkbox" id="specificCheck" name="specificCheck" value="1" required><br><br>
+
     <label for="informCheck">This information may be released to the general public, media, PLP mentors, and PLP board
       members for the purpose of informing:</label><br>
     <ul>
@@ -262,10 +263,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <li><a> General public through social media to showcase PLP events, experiences, and student accomplishments </a>
       </li>
     </ul>
-    <input type="checkbox" id="informCheck" name="informCheck" value="" required><br><br>
+    <input type="checkbox" id="informCheck" name="informCheck" value="1" required><br><br>
     <label for="revokeCheck">This authorization will remain in effect from the date it is executed until revoked by me,
       in writing, and delivered to the department(s) identified above. </label><br>
-    <input type="checkbox" id="revokeCheck" name="revokeCheck" value="" required><br><br>
+    <input type="checkbox" id="revokeCheck" name="revokeCheck" value="1" required><br><br>
     <label for="signature">Electronic Signature:</label><br>
     <input type="text" id="signature" name="signature" value="" required><br><br>
     <label for="signatureDate">Electronic Signature Date:</label><br>
@@ -287,7 +288,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <option value="honNo">No</option>
     </select><br><br>
     <label for="GPA">Cumulative GPA: </label><br>
-    <input type="number" id="GPA" name="GPA" value="" required><br><br>
+    <input type="text" id="GPA" name="GPA" value="" required><br><br>
     <label for="classification">What will your classification be in Fall 2023?</label><br>
     <select id="classification" name="classification" required>
       <option value="classDefault"></option>
@@ -298,7 +299,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <label for="gradDate">Anticipated Graduation Date</label><br>
     <input type="date" id="gradDate" name="gradDate" value="" required><br><br>
     <label for="enrolledHours">How many hours will you be enrolled in for Fall 2023? </label><br>
-    <input type="number" id="enrolledHours" name="enrolledHours" value="" required><br><br>
+    <input type="text" id="enrolledHours" name="enrolledHours" value="" required><br><br>
 
     <h1> Employment </h1>
     <label for="employmentStatus">Do you anticipate being employed during the Fall 2023 semester?</label><br>
@@ -310,12 +311,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <label for="employerName"> Company/Employer Name</label><br>
     <input type="text" id="employerName" name="employerName" value=""><br><br>
     <label for="workHours"> How many hours do you anticipate working per week?</label><br>
-    <input type="number" id="workHours" name="workHours" value=""><br><br>
+    <input type="text" id="workHours" name="workHours" value=""><br><br>
     <label for="clubs">Which clubs or organizations will you be involved in during the Fall 2023 semester? </label><br>
     <input type="text" id="clubs" name="clubs" value=""><br><br>
     <label for="clubHours">Approximately how many total hours do you anticipate your clubs or organizations will require
       each week? </label><br>
-    <input type="number" id="clubHours" name="clubHours" value=""><br><br>
+    <input type="text" id="clubHours" name="clubHours" value=""><br><br>
     <label for="discovery"> How did you hear about PLP? </label><br>
     <select id="discovery" name="discovery">
       <option value="disDefault"></option>
@@ -395,10 +396,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </ul>
     <label for="meetingCheck">I agree to meet with my mentor at least once per month to cultivate a professional
       learning relationship, if selected as a PLP member. </label><br>
-    <input type="checkbox" id="meetingCheck" name="meetingCheck" value="" required><br><br>
+    <input type="checkbox" id="meetingCheck" name="meetingCheck" value="1" required><br><br>
     <label for="matchCheck">I understand that my mentor may not be the perfect match and believe that I can still learn
       from their experience. </label><br>
-    <input type="checkbox" id="matchCheck" name="matchCheck" value="" required><br><br>
+    <input type="checkbox" id="matchCheck" name="matchCheck" value="1" required><br><br>
     <input type="submit" value="Submit">
   </form>
   <div class="copyright">
