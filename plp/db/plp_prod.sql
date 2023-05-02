@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2023 at 06:08 AM
+-- Generation Time: May 02, 2023 at 05:14 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -54,7 +54,7 @@ CREATE TABLE `mentees` (
   `revoke_check` varchar(11) NOT NULL,
   `signature` varchar(150) NOT NULL,
   `signature_date` date NOT NULL,
-  `major` varchar(30) NOT NULL,
+  `major` varchar(100) NOT NULL,
   `concentrations` varchar(254) DEFAULT NULL,
   `minor` varchar(50) DEFAULT NULL,
   `college` varchar(100) NOT NULL,
@@ -270,6 +270,15 @@ CREATE TABLE `mentor_mentee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `mentor_mentee`
+--
+
+INSERT INTO `mentor_mentee` (`id`, `mentor_id`, `mentee_id`, `created_at`, `updated_at`) VALUES
+(1, 16, 2, '2023-05-02 06:46:19', '2023-05-02 06:46:19'),
+(2, 17, 2, '2023-05-02 06:49:45', '2023-05-02 06:49:45'),
+(3, 18, 2, '2023-05-02 06:51:08', '2023-05-02 06:51:08');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -291,6 +300,7 @@ ALTER TABLE `mentors`
 ALTER TABLE `mentor_mentee`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `mentor_id` (`mentor_id`,`mentee_id`),
+  ADD UNIQUE KEY `unique_mentor_mentee` (`mentor_id`,`mentee_id`),
   ADD KEY `idx_mentor_id` (`mentor_id`),
   ADD KEY `idx_mentee_id` (`mentee_id`);
 
@@ -314,7 +324,7 @@ ALTER TABLE `mentors`
 -- AUTO_INCREMENT for table `mentor_mentee`
 --
 ALTER TABLE `mentor_mentee`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
