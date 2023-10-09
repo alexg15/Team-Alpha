@@ -1,0 +1,210 @@
+body{
+  overflow-x: hidden;
+  font-family: Roboto, sans-serif;
+}
+
+.button{
+	color:white;
+}
+
+b{
+	text-decoration: underline;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+u1 {
+	display: table;
+	margin: 0 auto;
+	overflow:hidden;
+	text-align: center;	
+}
+
+h1 {
+	text-align: center;
+}
+
+h3 {
+
+}
+
+.gborder {
+	background-color: darkgreen;
+	border:200px;	
+}
+
+
+.signin {
+	text-align: center;
+	text-decoration:none;
+}
+.button2 {
+	color:darkgreen;
+}
+
+.button3{
+  background-color: darkgreen; 
+  color: white; 
+	cursor: pointer;
+	font-size:2rem;
+
+}
+
+#top{
+
+	
+  color: #FFFFFF;
+  left: 5%;
+  top: 5%;
+  transform: translate(-5%, -5%);
+}
+.ferpa {
+	margin-top:20px;
+	margin-left:20%;
+}
+.bottomTabs {
+	text-align:center;
+	
+}
+
+.wordy {
+	color: black;
+	margin-left:20%;
+	margin-right:20%;
+	margin-bottom:2%;
+	margin-top:0;
+}
+
+.footer {
+	
+	color:darkgreen;
+	background-color:white;
+	margin-bottom:-20px;	
+	margin-left:-5px;
+	margin-right: -20px;
+	
+}
+
+.header {
+
+	background-image: url ("https://www.bestcollegesonline.org/wp-content/uploads/2019/10/university-of-north-texas.png");
+	margin-bottom:-20px;
+	margin-top:-50px;/*             */
+	margin-left: -15px;
+	margin-right: -15px;
+	position: fixed;
+}
+.tabs {
+	text-align: center;
+	text-decoration: none; 
+	background-color:darkgreen;
+}
+
+
+ .tabs li {
+ 
+	display: inline-block;
+   text-decoration: none;
+	font-size: 1.5rem;
+	margin:40px;	
+	color:white;
+	
+}
+
+ .bottomTabs li {
+ 
+	display: inline-block;
+	margin:10px;
+   text-decoration: none;
+	color:white;
+	
+}
+
+.copyright {
+	text-align:center;
+	font-size:0.8rem;
+}
+	.campus {
+		background-image: url("https://northtexan.unt.edu/sites/default/files/20_0146_unt_preview0251_branded_0.jpg");
+		background-repeat: no-repeat;
+		background-size:cover;
+		text-align:center;
+		color:black;
+		height:80%;
+		positon: absolute;
+		padding: 15%;
+		font-size: 2.75rem;
+		margin-left:-15px;
+		margin-right:-15px;
+	}
+	
+	
+.video-container{
+  width: 100vw;
+  height: 100vh;
+}
+
+.bigsexy {
+	font-size: 5rem;
+}
+
+.middleTabs{
+	text-align:center;
+}
+
+.middleTabs li {
+ 
+	display: inline-block;
+	margin:10px;
+   text-decoration: none;
+	color:white;
+	
+}
+ iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+#textleft{
+  position: absolute;
+  color: #FFFFFF;
+  left: 5%;
+  top: 5%;
+  transform: translate(-5%, -5%);
+}
+
+#textright{
+  position: absolute;
+  color: #FFFFFF;
+  left: 90%;
+  top: 5%;
+  transform: translate(-90%, -5%);
+}
+
+#register{
+  position: absolute;
+  color: #FFFFFF;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (min-aspect-ratio: 16/9) {
+  .video-container iframe {
+    height: 56.25vw;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-container iframe {
+    width: 177.78vh;
+  }
+}
