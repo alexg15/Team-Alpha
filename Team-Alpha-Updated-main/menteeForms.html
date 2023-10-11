@@ -1,0 +1,259 @@
+<html>
+  <head>
+    <title>UNT Professional Leadership program </title>
+    <meta name="description" content="Professional Leadership program">
+    <meta name="keywords" content="Professional Leadership Program UNT">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./Main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  </head>
+    
+  <body>
+    <div class = "header">
+
+			<ul class = "tabs">
+				<li><a class="button" href="swelcome.html">Welcome </a></li>
+        <li><a class="button" href="#basic-info"> Basic Info </a></li>
+        <li><a class="button" href="#Ferpa"> Ferpa Form </a></li>
+        <li><a class="button" href="#education">Education and Experience  </a></li>
+        <li><a class="button" href="#program-info">Program Info  </a></li>
+			  <li><a class="button" href="#memberRequire">Member Requirements  </a></li>
+
+			</ul>
+		</div>
+
+    <h1 id="basic-info"> Basic Info </h1>
+    <div class="ferpa">
+      <form action="menteeForms.php" onsubmit="return validateForm()">
+        <label for="fName">First Name:</label><br>
+        <input type="text" id="fName" name="fName" value=""><br><br>
+        <label for="prefName">Preferred First Name:</label><br>
+        <input type="text" id="prefName" name="prefName" value=""><br><br>
+        <label for="lName">Last name:</label><br>
+        <input type="text" id="lName" name="lName" value=""><br><br>
+        <label for="studID">Student ID Number:</label><br>
+        <input type="text" id="studID" name="studID" value=""><br><br>
+        <label for="DOB">Date of Birth:</label><br>
+        <input type="date" id="DOB" name="DOB" value=""><br><br>
+        <label for="gender">Gender:</label><br>
+        <select id="gender" name="gender">
+          <option value="genderDefault"></option>
+          <option value="male">Male</option>
+          <option value="female">Female</option> 
+          <option value="agender">Agender</option>
+          <option value="genderQueer">GenderQueer</option>
+          <option value="genderNonConforming">Gender Non-Conforming</option>
+          <option value="nonbinary">Non-Binary</option>
+          <option value="transgender">Transgender</option>
+          <option value="transman">Transman</option>
+          <option value="transwoman">Transwoman</option>
+          <option value="other">Other</option>
+          <option value="preferNotDisclose">Prefer not to disclose</option>
+        </select><br><br>
+        <label for="ethnicity">Ethnicity:</label><br>
+        <input type="text" id="ethnicity" name="ethnicity" value=""><br><br><br>
+        <p>*Occasionally, we provide special programming and opportunities for various student populations.* </p>
+        <label for="intStatus">Are you classified as an international student? </label><br>
+        <select id="intStatus" name="intStatus">
+          <option value="intDefault"></option>
+          <option value="intYes">Yes</option>
+          <option value="intNo">No</option> 
+        </select><br><br>
+        <label for="firstGen"> Are you a first generation college student? </label><br>
+        <select id="firstGen" name="firstGen">
+          <option value="firstDefault"></option>
+          <option value="firstYes">Yes</option>
+          <option value="firstNo">No</option> 
+        </select> <br><br><br>
+        <label for="prefPhone">Preferred Phone Number:</label><br>
+        <input type="tel" id="prefPhone" name="prefPhone" value=""><br><br>
+        <label for="street">Permanent Street Address:</label><br>
+        <input type="text" id="street" name="street" value=""><br><br>
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" value=""><br><br>
+        <label for="state">State:</label><br>
+        <input type="text" id="state" name="state" value=""><br><br>
+        <label for="zipCode">Zip Code:</label><br>
+        <input type="number" id="zipCode" name="zipCode" value=""><br><br>
+        <label for="languages">What languages do you speak?</label><br>
+        <input type="text" id="languages" name="languages" value=""><br><br>
+        <label for="allergies">Please list any food allergies or dietary restrictions:</label><br>
+        <input type="text" id="allergies" name="allergies" value=""><br><br>
+    </div>
+    
+    <h1 id="Ferpa"> FERPA </h1>
+    <div class="ferpa">
+        <label for="personalemail">Email Address:</label><br>
+        <input type="email" id="personalemail" name="personalemail" value=""><br><br>
+        <label for="UNTemail">UNT Student Email Address:</label><br>
+        <input type="email" id="UNTemail" name="UNTemail" value=""><br><br>
+        <label for="disclosureCheck">I hereby voluntarily authorize the University of North Texas department(s) identified below to disclose personally identifiable information from my educational records: UNT Professional Leadership Program</label><br>
+        <input type="checkbox" id="disclosureCheck" name="disclosureCheck" value=""><br><br>
+        <label for="releaseCheck">I understand that the following information is considered directory information under FERPA and may be released:</label><br>
+        <label> Name, address, major field of study, participation in officially recognized activities and sports, weight and height for members of athletic teams, dates of attendance, enrollment status, classification, degrees, awards and honors received, expected graduation date, dissertation and thesis titles, most recent school attended, and photograph</label><br>
+        <input type="checkbox" id="releaseCheck" name="releaseCheck" value=""><br><br>
+        <label for="specificCheck">Specifically, I authorize release of the following non-directory information: University-assigned email addresses, Date of birth, GPA, resume </label><br>
+        <input type="checkbox" id="specificCheck" name="specificCheck" value=""><br><br>
+        <label for="informCheck">This information may be released to the general public, media, PLP mentors, and PLP board members for the purpose of informing:</label><br>
+        <ul>
+          <li><a> Prospective Employers/Partner Companies for recruitment purposes, event coordination purposes  </a> </li>
+          <li><a> PLP-assigned mentor of PLP student mentee's information  </a> </li>
+          <li><a>Public/Media notification of Scholarship, Honor, or Award </a> </li>
+          <li><a> Notifying the general public of PLP membership and academic or university-related accomplishments  </a> </li>
+          <li><a> Informing PLP mentors and PLP board members of student participation and class makeup  </a> </li>
+          <li><a> PLP Student Directors for the purpose of maintaining attendance records and performing peer mentoring  </a> </li>
+          <li><a> General public through social media to showcase PLP events, experiences, and student accomplishments  </a> </li>
+        </ul>
+        <input type="checkbox" id="informCheck" name="informCheck" value=""><br><br>
+        <label for="revokeCheck">This authorization will remain in effect from the date it is executed until revoked by me, in writing, and delivered to the department(s) identified above. </label><br>
+        <input type="checkbox" id="revokeCheck" name="revokeCheck" value=""><br><br>
+        <label for="signature">Electronic Signature:</label><br>
+        <input type="text" id="signature" name="signature" value=""><br><br>
+        <label for="signatureDate">Electronic Signature Date:</label><br>
+        <input type="date" id="signatureDate" name="signatureDate" value=""><br><br>
+    </div>
+      
+    <h1 id="education"> Education and Experience </h1>
+    <div class="ferpa">
+        <label for="major">Major:</label><br>
+        <input type="text" id="major" name="major" value=""><br><br>
+        <label for="concentration">Please list your concentration(s):</label><br>
+        <input type="text" id="concentration" name="concentration" value=""><br><br>
+        <label for="minor">Minor</label><br>
+        <input type="text" id="minor" name="minor" value=""><br><br>
+        <label for="college">In what college is your major:</label><br>
+        <input type="text" id="college" name="college" value=""><br><br>
+        <label for="honors">Are you an active member of the UNT Honors College?</label><br>
+        <select id="honors" name="honors">
+          <option value="honDefault"></option>
+          <option value="honYes">Yes</option>
+          <option value="honNo">No</option>
+        </select><br><br>
+        
+        <label for="GPA">Cumulative GPA: </label><br>
+        <input type="text" id="GPA" name="GPA" value=""><br><br>
+
+        <label for="classification">What will your classification be in Fall 2023?</label><br>
+        <select id="classification" name="classification">
+          <option value="classDefault"></option>
+          <option value="classSophomore">Sophomore</option>
+          <option value="classJunior">Junior</option>
+          <option value="classSenior">Senior</option>
+        </select><br><br>
+        <label for="gradDate">Anticipated Graduation Date</label><br>
+        <input type="date" id="gradDate" name="gradDate" value=""><br><br>
+        <label for="enrolledHours">How many hours will you be enrolled in for Fall 2023? </label><br>
+        <input type="number" id="enrolledHours" name="enrolledHours" value=""><br><br> 
+    </div>
+
+    <h1> Employment </h1>
+    <div class="ferpa">
+        <label for="employmentStatus">Do you anticipate being employed during the Fall 2023 semester?</label><br>
+        <select id="employmentStatus" name="employmentStatus">
+          <option value="empDefault"></option>
+          <option value="empYes">Yes</option>
+          <option value="empNo">No</option> 
+        </select><br><br>
+        <label for="employerName"> Company/Employer Name</label><br>
+        <input type="text" id="employerName" name="employerName" value=""><br><br>
+        <label for="workHours"> How many hours do you anticipate working per week?</label><br>
+        <input type="number" id="workHours" name="workHours" value=""><br><br>
+        <label for="clubs">Which clubs or organizations will you be involved in during the Fall 2023 semester? </label><br>
+        <input type="text" id="clubs" name="clubs" value=""><br><br>
+        <label for="clubHours">Approximately how many total hours do you anticipate your clubs or organizations will require each week? </label><br>
+        <input type="number" id="clubHours" name="clubHours" value=""><br><br>
+        <label for="discovery"> How did you hear about PLP? </label><br>
+        <select id="discovery" name="discovery">
+          <option value="disDefault"></option>
+          <option value="current">Current PLP member</option>
+          <option value="poster">Signage (banners, flyers, handouts, etc) </option> 
+          <option value="professor">UNT Professor</option> 
+          <option value="staff">UNT Staff member</option> 
+          <option value="emailRecruit">E-mail</option> 
+          <option value="word">Word of Mouth</option> 
+          <option value="article">Newspaper or Radio</option> 
+          <option value="alumni">UNT or PLP Alumni</option> 
+          <option value="professional">Business Executive or Professional</option> 
+          <option value="org">Class organization Presentation</option> 
+          <option value="notListed">Other</option> 
+        </select> <br><br>
+        <label for="contact">Specific name of contact or source:</label><br>
+        <input type="text" id="contact" name="contact" value=""><br><br> 
+    </div>			
+    
+    <h1 id="program-info"> Program Info </h1>
+    <div class="ferpa">
+    <h2> Transportation </h2>
+        <label for="travel"> Some mentors will require that their mentee have transportation to meetings. Are you able to travel outside of Denton to meet your mentor? </label><br>
+        <select id="travel" name="travel">
+          <option value="travDefault"></option>
+          <option value="travYes">Yes</option>
+          <option value="travNo">No</option> 
+        </select><br><br>
+        <label for="trans">Do you have reliable transportation?</label><br>
+        <select id="trans" name="trans">
+          <option value="transDefault"></option>
+          <option value="transYes">Yes</option>
+          <option value="transNo">No</option> 
+        </select><br>
+      </div>
+
+      <div class="ferpa">
+      <h2> Mentor </h2>
+        <label for="mentorPref"> List the characteristics you are seeking in a mentor </label><br>
+        <input type="text" id="mentorPref" name="mentorPref" value=""><br><br>
+        <label for="goals">What are your goals/expectations for the  mentoring relationship?</label><br>
+        <input type="text" id="goals" name="goals" value=""><br><br>
+        <label for="interests">What are your hobbies, interests, and specialties?</label><br>
+        <input type="text" id="interests" name="interests" value=""><br><br>
+        <label for="industryPref">From which industries would you prefer to have a mentor? *Not all match preferences will be honored, but we do our best to consider your requests.*</label><br>
+        <input type="text" id="industryPref" name="industryPref" value=""><br><br>
+        <label for="mentorGenPrefCheck">Do you have a mentor gender preference?</label><br>
+        <select id="mentorGenPrefCheck" name="mentorGenPrefCheck">
+          <option value="prefDefault"></option>
+          <option value="prefYes">Yes</option>
+          <option value="prefNo">No</option> 
+        </select><br><br>
+        <label for="mentorGenderPref">Gender preferred?</label><br>
+        <input type="text" id="mentorGenderPref" name="mentorGenderPref" value=""><br>
+       
+
+      <h2 id="memberRequire"> Member Requirements </h2>
+      <p> If selected as a member of the UNT Professional Leadership Program, I can commit to the following for the full Fall 2023 semester: </p>
+      <ul>
+        <li> Mandatory weekly attendence every Wednesday from 5:00 - 6:20pm </li>
+        <li> Enrolled in BUSI 4980 course. </li>
+        <li> Completion of required community engagement hours each semester </li>
+        <li> Attendance at PLP-sponsored networking events and student programs</li>
+        <li> Professionalism at all times including via social media</li>
+        <li> Compliance with UNT code of student conduct</li>
+      </ul>
+
+          <label for="meetingCheck">I agree to meet with my mentor at least once per month to cultivate a professional learning relationship, if selected as a PLP member. </label><br>
+          <input type="checkbox" id="meetingCheck" name="meetingCheck" value=""><br><br>
+          <label for="matchCheck">I understand that my mentor may not be the perfect match and believe that I can still learn from their experience.  </label><br>
+          <input type="checkbox" id="matchCheck" name="matchCheck" value=""><br><br>
+
+          <input type="submit" value="Submit">
+        </form> 
+        <script>
+        function validateForm() {
+        var gpaInput = document.getElementById("GPA").value;
+        var gpaValue = parseFloat(gpaInput);
+    
+        if (isNaN(gpaValue) || gpaValue < 3.25) {
+            alert("GPA must be a valid number and 3.25 or higher to submit the form.");
+            document.getElementById("GPA").focus();
+            return false; // Prevent form submission
+        }
+    
+        // If the GPA is 3.25 or higher, the form can be submitted.
+        return true;
+    }
+          </script>
+      <div class="copyright">
+        <p> <span> © </span> 2023 University of North Texas. All Rights Reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>
