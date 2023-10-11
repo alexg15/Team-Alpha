@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<link rel="stylesheet" type="text/css" href="menteeRegister.css">
+	<script>
+		function loginFunction() {
+  alert("Successfully Registered");
+  window.location.href='swelcome.html';
+}
+	</script>
+</head>
+<body>
+	<div class="login-box">
+		<h2>Register</h2>
+		<form method="post" action="menteeRegister.php">
+		  <label for="firstname">First Name:</label><br>
+		  <input type="text" id="firstname" name="firstname" required><br>
+		  <label for="lastname">Last Name:</label><br>
+		  <input type="text" id="lastname" name="lastname" required><br>
+		  <label for="email">Email:</label><br>
+		  <input type="email" id="email" name="email" required><br>
+		  <button type ="submit" class="button3" onclick="loginFunction()" onclick = >Register as student </button>
+		</form>
+	</div>
+</body>
+</html>
+
+
+  
