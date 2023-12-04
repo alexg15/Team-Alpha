@@ -1,3 +1,0 @@
-{
-    "phpserver.root": "C:/Users/Alo/Documents/Spring 2023 Classes/CSCE 4905 Capstone"
-}
