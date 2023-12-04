@@ -1,0 +1,22 @@
+{"username":"alo127","password":"Deez"}
+{"username":"Alogarcia3","password":"sdfsweds"}
+{"username":"alec","password":"asdfg"}
+{"username":"garcia.alejandro17@gmail.com","password":"alo123"}
+{"username":"alex7","password":"12345"}
+null
+null
+{"email":"garcia.alejandro17@gmail.com","fullname":"Alex Garcia","password":"Panthers2"}
+{"email":"garcia.alejandro17@gmail.com","fullname":"Alex Garcia","password":"Panthers"}
+{"email":"alo@gmail.com","fullname":"alex ","password":"12345"}
+{"email":"alejandrogarcia3@my.unt.edu","firstname":null,"lastname":null,"password":"NCHSpanthers"}
+{"email":"alejandrogarcia3@my.unt.edu","firstname":"Alex","lastname":"Garcia","password":"NCHSpanthers"}
+{"email":"alejandrogarcia3@my.unt.edu","firstname":"alex ","lastname":"Garcia","password":"panthers2"}
+{"email":"alejandrogarcia3@my.unt.edu","firstname":"alex ","lastname":"Garcia","password":"1234"}
+{"email":"alejandrogarcia3@my.unt.edu","firstname":"al","lastname":"gar","password":"pan"}
+{"email":"garcia.alejandro17@gmail.com","firstname":"al","lastname":"gar","password":"pan"}
+{"email":"garcia.alejandro17@gmail.com","firstname":"al","lastname":"gar","password":"pan"}
+{"email":"garcia.alejandro17@gmail.com","firstname":"Alex","lastname":"garcia","password":"Panth"}
+{"email":"garcia.alejandro17@gmail.com","firstname":"Alejandro","lastname":"Garcia","password":"pan"}
+{"email":"alogarcid@gmail.com","firstname":"Alejandro","lastname":"Garcia","password":"pan"}
+{"email":"garcia.alejandro17@gmail.com","firstname":"Alejandro","lastname":"Daniel Garcia","password":"pan"}
+{"email":"garcia.alejandro17@gmail.com","firstname":"Alejandro","lastname":"Daniel Garcia","password":"pan"}
